@@ -1,0 +1,250 @@
+[
+    {
+        "tag": "1ST",
+        "name": "First Division",
+        "commander": ["Vacant", "Colonel"],
+        "patch_logo": "#",
+        "deployment": {
+            "focus": "Automoton Front",
+            "target_location": "Fenmire"
+        },
+        "companies": [
+            {
+                "tag": "1DIC",
+                "name": "Iron Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            },
+            {
+                "tag": "1DSC",
+                "name": "Steel Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tag": "2ND",
+        "name": "Second Division",
+        "commander": ["Vacant", "Colonel"],
+        "patch_logo": "#",
+        "deployment": {
+            "focus": "Tyranid Front",
+            "target_location": "Terrek"
+        },
+        "companies": [
+            {
+                "tag": "2DAC",
+                "name": "Ash Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            },
+            {
+                "tag": "2DTC",
+                "name": "Thorn Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tag": "3RD",
+        "name": "Third Division",
+        "commander": ["Vacant", "Colonel"],
+        "patch_logo": "#",
+        "deployment": {
+            "focus": "Illuminate Front",
+            "target_location": "Seyshel Beach"
+        },
+        "companies": [
+            {
+                "tag": "3DSC",
+                "name": "Specter Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            },
+            {
+                "tag": "3DWC",
+                "name": "Wraith Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tag": "4TH",
+        "name": "Fourth Division",
+        "commander": ["Vacant", "Colonel"],
+        "patch_logo": "#",
+        "deployment": {
+            "focus": "Quick Reaction Force",
+            "target_location": "Not Deployed"
+        },
+        "companies": [
+            {
+                "tag": "4DFC",
+                "name": "Falcon Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            },
+            {
+                "tag": "4DSC",
+                "name": "Saber Company",
+                "commander": ["Vacant", "Major"],
+                "squads": [
+                    {
+                        "name": "Alpha Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    },
+                    {
+                        "name": "Bravo Squad",
+                        "members": [
+                            ["Vacant", "Captain"],
+                            ["Vacant", "Sergeant"],
+                            ["Vacant", "Trooper"],
+                            ["Vacant", "Trooper"]
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
