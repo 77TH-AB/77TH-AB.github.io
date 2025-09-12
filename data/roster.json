@@ -4,7 +4,7 @@
         "name": "First Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.github.io/data/1st_division_patch.png",
-        "about": "Coming Soon.",
+        "about": "The 1st Division specializes in campaigns against the Automaton threat.<br><br>Hardened by brutal mechanized warfare, its troops are trained in siege-breaking, defensive countermeasures, and systematic destruction of fortified enemy lines. The Division thrives in attrition-heavy operations where precision, discipline, and resilience decide victory.",
         "deployment": {
             "focus": "Automoton Front",
             "target_location": "Fenmire"
