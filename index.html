@@ -1,1 +1,945 @@
-<!-- Placeholder Index File -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>77th Assault Brigade - Helldivers 2 Community</title>
+        <link rel="icon" href="media/logo.png">
+        <style>
+            .hero-img {
+                width: -webkit-fill-available;
+                max-width: -webkit-fill-available;
+                height: 320px;
+                object-fit: cover;
+                display: block;
+                margin-bottom: 0;
+                box-shadow: 0 4px 32px #000a;
+            }
+            .about-section {
+                max-width: 900px;
+                margin: 2rem auto 1.5rem auto;
+                background: #222;
+                border-radius: 14px;
+                box-shadow: 0 2px 18px #ffd70033;
+                padding: 2rem 2rem 1.5rem 2rem;
+                color: #ffd700;
+                font-size: 1.15rem;
+            }
+            .division-expander {
+                max-width: 900px;
+                margin: 1.2rem auto;
+                background: #18181a;
+                border-radius: 10px;
+                box-shadow: 0 2px 12px #ffd70022;
+                padding: 1.2rem 1.5rem;
+                color: #fff;
+                font-size: 1.08rem;
+                cursor: pointer;
+                border: 2px solid #ffd700;
+                transition: box-shadow 0.2s, border-color 0.2s;
+            }
+            .division-expander:hover {
+                box-shadow: 0 8px 32px #ffd70099;
+                border-color: #fff;
+            }
+            .division-expander .expander-title {
+                display: inline-flex;
+                font-weight: bold;
+                color: #ffd700;
+                font-size: 1.15rem;
+                margin-bottom: 0.5rem;
+            }
+            .expander-content {
+                display: none;
+                margin-top: 0.7rem;
+                color: #ffd700;
+                font-size: 1.05rem;
+            }
+            .division-expander.active .expander-content {
+                display: block;
+            }
+            .menu-modal-btn {
+                background: #ffd700;
+                color: #18181a;
+                border: none;
+                border-radius: 8px;
+                font-size: 1.3rem;
+                font-weight: 900;
+                padding: 0.7rem 1.3rem;
+                cursor: pointer;
+                box-shadow: 0 2px 12px #ffd70044;
+                transition: background 0.2s, color 0.2s;
+            }
+            .menu-modal-btn:hover {
+                background: #fff;
+                color: #ffd700;
+            }
+            .menu-modal-bg {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.85);
+                z-index: 2000;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .menu-modal-bg[style*="display: block"] {
+                opacity: 1;
+            }
+            .menu-modal {
+                position: fixed;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%) scale(0.95);
+                background: #18181a;
+                border-radius: 18px;
+                box-shadow: 0 8px 48px #ffd70099;
+                padding: 2rem 2.2rem 1.5rem 2.2rem;
+                min-width: 320px;
+                max-width: 95vw;
+                z-index: 2100;
+                border: 3px solid #ffd700;
+                animation: modalIn 0.3s;
+                color: #fff;
+                text-align: center;
+            }
+            .menu-modal .menu-modal-close {
+                position: absolute;
+                top: 12px;
+                right: 18px;
+                font-size: 1.7rem;
+                color: #ffd700;
+                background: none;
+                border: none;
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+            .menu-modal .menu-modal-close:hover {
+                color: #fff;
+            }
+            /* Company grid for modal */
+            .company-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+                margin-top: 1.2rem;
+            }
+            @media (max-width: 700px) {
+                .company-list {
+                    grid-template-columns: 1fr;
+                }
+            }
+            body {
+                margin: 0;
+                font-family: 'Orbitron', 'Segoe UI', 'Roboto', Arial, sans-serif;
+                background: #111112;
+                color: #fff;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 2rem 1rem 1rem 1rem;
+                background: #18181a;
+                border-bottom: 4px solid #ffd700;
+                box-shadow: 0 2px 12px #000a;
+            }
+
+            header img {
+                width: 120px;
+                height: auto;
+                margin-bottom: 1rem;
+                filter: drop-shadow(0 0 12px #ffd700);
+            }
+
+            h1 {
+                font-size: 2.7rem;
+                margin: 0.5rem 0 0.2rem 0;
+                letter-spacing: 2px;
+                text-shadow: 0 2px 12px #ffd70044;
+                color: #ffd700;
+                font-weight: 900;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                color: #fff;
+                margin-bottom: 1rem;
+                text-shadow: 0 1px 8px #ffd70044;
+                font-weight: 700;
+            }
+
+            main {
+                width: -webkit-fill-available;
+                max-width: -webkit-fill-available;
+                margin: 0;
+                padding: 0;
+                background: #18181a;
+                border-radius: 0;
+                box-shadow: none;
+                border: none;
+            }
+
+            .intro, section {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 1rem;
+            }
+
+            .roster {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                justify-content: center;
+            }
+            .division-card {
+                background: #222;
+                border-radius: 12px;
+                box-shadow: 0 2px 18px #ffd70033;
+                padding: 1.5rem 1.2rem;
+                min-width: 280px;
+                /* max-width: 340px; */
+                flex: 1 1 280px;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+                border: 2px solid #ffd700;
+                position: relative;
+            }
+            .division-card:hover {
+                transform: translateY(-6px) scale(1.03);
+                box-shadow: 0 8px 32px #ffd70099;
+                border-color: #fff;
+            }
+            .division-title {
+                color: #ffd700;
+                font-size: 1.3rem;
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                font-weight: bold;
+            }
+            .division-commander {
+                font-size: 1rem;
+                margin-bottom: 0.7rem;
+                color: #fff;
+            }
+            .division-deployment {
+                font-size: 0.98rem;
+                margin-bottom: 0.7rem;
+                color: #ffd700;
+            }
+            /* Modal overlay and animation */
+            .modal-bg {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.85);
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .modal-bg[style*="display: block"] {
+                opacity: 1;
+            }
+            .modal {
+                position: fixed;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%) scale(0.95);
+                background: #18181a;
+                border-radius: 18px;
+                box-shadow: 0 8px 48px #ffd70099;
+                padding: 2rem 2.2rem 1.5rem 2.2rem;
+                min-width: 340px;
+                max-width: 95vw;
+                max-height: 90vh;
+                overflow-y: auto;
+                z-index: 1100;
+                border: 3px solid #ffd700;
+                animation: modalIn 0.3s;
+                color: #fff;
+            }
+            @keyframes modalIn {
+                from { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
+                to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            }
+            .modal-close {
+                position: absolute;
+                top: 12px;
+                right: 18px;
+                font-size: 1.7rem;
+                color: #ffd700;
+                background: none;
+                border: none;
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+            .modal-close:hover {
+                color: #fff;
+            }
+            .modal h2 {
+                color: #ffd700;
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                font-weight: 900;
+            }
+            .modal .commander {
+                color: #fff;
+                font-size: 1.05rem;
+            }
+            .modal .deployment {
+                color: #ffd700;
+                font-size: 1rem;
+            }
+            .modal .company {
+                background: #222;
+                border-radius: 8px;
+                border: 2px solid #ffd700;
+                margin-bottom: 1.2rem;
+                padding: 1rem 1.2rem;
+                box-shadow: 0 2px 12px #ffd70022;
+            }
+            .modal .company h3 {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                font-size: 1.15rem;
+                color: #ffd700;
+                font-weight: 700;
+            }
+            .modal .company .commander {
+                margin-bottom: 0.5rem;
+                color: #fff;
+                font-size: 0.98rem;
+            }
+            .modal .squad {
+                margin-bottom: 0.7rem;
+                padding-left: 0.5rem;
+            }
+            .modal .squad-name {
+                font-weight: bold;
+                color: #ffd700;
+                font-size: 0.98rem;
+            }
+            .modal .members {
+                list-style: none;
+                padding-left: 0;
+                margin: 0.2rem 0 0.5rem 0;
+            }
+            .modal .members li {
+                font-size: 0.95rem;
+                color: #fff;
+                margin-bottom: 0.1rem;
+            }
+            .header-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 17rem;
+                padding: 0.5rem 2vw 0.5rem 1vw;
+                min-height: 64px;
+            }
+            .brand-group {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .logo {
+                width: 64px;
+                height: auto;
+                margin: 0 0.5rem 0 0;
+                filter: drop-shadow(0 0 8px #ffd700);
+            }
+            .header-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .header-text h1 {
+                margin: 0;
+                font-size: 1.6rem;
+                color: #ffd700;
+                font-weight: 900;
+                text-shadow: 0 2px 12px #ffd70044;
+            }
+            .header-text .subtitle {
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 700;
+                margin-top: 0.1rem;
+            }
+            .menu-bar {
+                display: flex;
+                gap: 1rem;
+                margin-left: auto;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+            .menu-btn {
+                background: none;
+                border: none;
+                color: #ffd700;
+                font-size: 1rem;
+                font-weight: 700;
+                padding: 0.5rem 1.2rem;
+                cursor: pointer;
+                border-radius: 6px;
+                transition: background 0.2s, color 0.2s;
+            }
+            .menu-btn.active, .menu-btn:hover {
+                background: #ffd700;
+                color: #111112;
+            }
+            .campaign-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 1.5rem;
+                margin-top: 1rem;
+            }
+            .planet-card {
+                background: #222;
+                border-radius: 10px;
+                border: 2px solid #ffd700;
+                box-shadow: 0 2px 12px #ffd70022;
+                padding: 1rem 1.2rem;
+                color: #fff;
+                font-size: 0.98rem;
+            }
+            .planet-card.automatons {
+                border-color: #fe6d72;
+            }
+            .planet-card.terminids {
+                border-color: #ffc100;
+            }
+            .planet-card.illuminates {
+                border-color: #6b3aba;
+            }
+            .planet-card .planet-header {
+                font-size: 1.08rem;
+                font-weight: bold;
+                margin-bottom: 0.3rem;
+            }
+            .planet-card.automatons .planet-header {
+                color: #fe6d72;
+            }
+            .planet-card.terminids .planet-header {
+                color: #ffc100;
+            }
+            .planet-card.illuminates .planet-header {
+                color: #6b3aba;
+            }
+            @media (max-width: 800px) {
+                main {
+                    margin: 1rem;
+                    padding: 0.5rem;
+                }
+                .roster {
+                    flex-direction: column;
+                    gap: 1.2rem;
+                }
+                .modal {
+                    min-width: 90vw;
+                    padding: 1rem 0.5rem 1rem 0.5rem;
+                }
+            }
+            @media (max-width: 900px) {
+                .roster {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <div class="brand-group">
+                    <img src="media/logo.png" alt="77th Assault Brigade Logo" class="logo">
+                    <div class="header-text">
+                        <h1>77th Assault Brigade</h1>
+                        <div class="subtitle">Helldivers 2 Gaming Community</div>
+                    </div>
+                </div>
+                <button id="menu-modal-btn" class="menu-modal-btn" aria-label="Open menu">&#9776; Menu</button>
+            </div>
+        </header>
+        <main>
+            <div id="page-home" style="display:none;">
+                <img src="https://77th-ab.github.io/data/orbit_sc_01.jpg" alt="Super Earth Orbit" class="hero-img">
+                <div class="about-section">
+                    <h2 style="color:#ffd700;margin-top:0;">About the 77th Assault Brigade</h2>
+                    <p>The 77th Assault Brigade is a Helldivers 2 community dedicated to coordinated gameplay, camaraderie, and galactic liberation. We operate as a structured brigade with multiple divisions, each specializing in different aspects of the war effort. Our mission: defend Super Earth and bring Managed Democracy to the galaxy!</p>
+                </div>
+                <div id="division-expanders"></div>
+            </div>
+            <div id="page-roster">
+                <div class="intro">
+                    Welcome to the 77th Assault Brigade! We are a Helldivers 2 community dedicated to coordinated gameplay,
+                    camaraderie, and galactic liberation. Join us and become part of the fight for Super Earth!
+                </div>
+                <section>
+                    <h2 style="color:#ffd700;">Brigade Roster</h2>
+                    <div id="roster" class="roster">
+                        <!-- Dynamic content -->
+                    </div>
+                </section>
+            </div>
+            <div id="page-campaign" style="display:none;">
+                <div class="intro">
+                    <h2 style="color:#ffd700;">War Campaign Status</h2>
+                    <div id="campaign-status">
+                        <!-- Campaign data will appear here -->
+                    </div>
+                </div>
+            </div>
+            <div id="page-report" style="display:none;">
+                <div class="intro">
+                    <h2 style="color:#ffd700;">War Report & Deployment Recommendations</h2>
+                    <div id="war-report">
+                        <!-- War report will appear here -->
+                    </div>
+                </div>
+            </div>
+            <footer style="width:-webkit-fill-available;background:#18181a;border-top:3px solid #ffd700;padding:1.2rem 0 1.2rem 0;text-align:center;color:#ffd700;font-size:1rem;letter-spacing:1px;box-shadow:0 -2px 12px #000a;margin-top:2rem;">
+                &copy; 2025 77th Assault Brigade &mdash; Helldivers 2 Community.<br>Not affiliated with Arrowhead Game Studios or Sony Interactive Entertainment.<br>For community use only.
+            </footer>
+        </main>
+        
+        <div id="modal-bg" class="modal-bg"></div>
+        <script>
+            // Modal menu logic
+            function showMenuModal() {
+                let menuModalBg = document.getElementById('menu-modal-bg');
+                if (!menuModalBg) {
+                    menuModalBg = document.createElement('div');
+                    menuModalBg.id = 'menu-modal-bg';
+                    menuModalBg.className = 'menu-modal-bg';
+                    document.body.appendChild(menuModalBg);
+                }
+                menuModalBg.innerHTML = `<div class="menu-modal">
+                    <button class="menu-modal-close" aria-label="Close">&times;</button>
+                    <h2 style='color:#ffd700;'>Menu</h2>
+                    <div style='margin:1.2rem 0;'>
+                        <button class='menu-btn' id='menu-home'>Home</button><br><br>
+                        <button class='menu-btn' id='menu-roster'>Roster</button><br><br>
+                        <button class='menu-btn' id='menu-campaign'>War Campaign</button><br><br>
+                        <button class='menu-btn' id='menu-report'>War Report</button>
+                    </div>
+                </div>`;
+                // Add event listeners to close modal on menu selection
+                menuModalBg.querySelector('#menu-home').onclick = function() {
+                    window.location.hash = '#home';
+                    closeMenuModal();
+                };
+                menuModalBg.querySelector('#menu-roster').onclick = function() {
+                    window.location.hash = '#roster';
+                    closeMenuModal();
+                };
+                menuModalBg.querySelector('#menu-campaign').onclick = function() {
+                    window.location.hash = '#campaign';
+                    closeMenuModal();
+                };
+                menuModalBg.querySelector('#menu-report').onclick = function() {
+                    window.location.hash = '#report';
+                    closeMenuModal();
+                };
+                menuModalBg.style.display = 'block';
+                setTimeout(() => { menuModalBg.style.opacity = 1; }, 10);
+                menuModalBg.querySelector('.menu-modal-close').onclick = closeMenuModal;
+                menuModalBg.onclick = function (e) {
+                    if (e.target === menuModalBg) closeMenuModal();
+                };
+            }
+            function closeMenuModal() {
+                const menuModalBg = document.getElementById('menu-modal-bg');
+                if (menuModalBg) {
+                    menuModalBg.style.opacity = 0;
+                    setTimeout(() => {
+                        menuModalBg.style.display = 'none';
+                        menuModalBg.innerHTML = '';
+                    }, 200);
+                }
+            }
+            document.getElementById('menu-modal-btn').onclick = showMenuModal;
+            // Super Earth SPA JS
+            let rosterData = [];
+
+            async function fetchRoster() {
+                const url = 'https://77th-ab.github.io/data/roster.json';
+                try {
+                    const res = await fetch(url);
+                    if (!res.ok) throw new Error('Failed to fetch roster data');
+                    return await res.json();
+                } catch (e) {
+                    document.getElementById('roster').innerHTML = `<div style='color:red;'>Error loading roster data.</div>`;
+                    return null;
+                }
+            }
+
+            function createDivisionCard(division, idx) {
+                return `
+        <div class="division-card" data-idx="${idx}" tabindex="0" aria-label="${division.name} (${division.tag})">
+            <div class="division-title">${division.name} <span style="font-size:0.9rem;color:#aaa;">(${division.tag})</span></div>
+            <div class="division-commander">Division Commander: ${division.commander[0]} (${division.commander[1]})</div>
+            <div class="division-deployment">Deployment: <b>${division.deployment.focus}</b></div>
+        </div>
+        `;
+            }
+
+            function createDivisionModal(division) {
+                return `
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h2>${division.name} <span style="font-size:0.9rem;color:#aaa;">(${division.tag})</span></h2>
+        <div class="commander">Division Commander: ${division.commander[0]} (${division.commander[1]})</div>
+        <div class="deployment">Deployment: <b>${division.deployment.focus}</b></div>
+        <hr style="border:1px solid #ffd700; margin:1rem 0;">
+        <div class="company-list">
+            ${division.companies.map(company => `
+                <div class="company">
+                    <h3>${company.name} <span style="font-size:0.9rem;color:#aaa;">(${company.tag})</span></h3>
+                    <div class="commander">CO: ${company.commander[0]} (${company.commander[1]})</div>
+                    ${company.squads.map(squad => `
+                        <div class="squad">
+                            <div class="squad-name">${squad.name}</div>
+                            <ul class="members">
+                                ${squad.members.map(member => `<li>${member[0]} (${member[1]})</li>`).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>
+            `).join('')}
+        </div>
+        `;
+            }
+
+            function showModal(division) {
+                const modalBg = document.getElementById('modal-bg');
+                modalBg.innerHTML = `<div class="modal">${createDivisionModal(division)}</div>`;
+                modalBg.style.display = 'block';
+                setTimeout(() => { modalBg.style.opacity = 1; }, 10);
+                // Close button
+                modalBg.querySelector('.modal-close').onclick = closeModal;
+                // ESC key
+                document.addEventListener('keydown', escListener);
+                // Click outside modal
+                modalBg.onclick = function (e) {
+                    if (e.target === modalBg) closeModal();
+                };
+            }
+
+            function closeModal() {
+                const modalBg = document.getElementById('modal-bg');
+                modalBg.style.opacity = 0;
+                setTimeout(() => {
+                    modalBg.style.display = 'none';
+                    modalBg.innerHTML = '';
+                }, 200);
+                document.removeEventListener('keydown', escListener);
+            }
+
+            function escListener(e) {
+                if (e.key === 'Escape') closeModal();
+            }
+
+            async function renderRoster() {
+                const data = await fetchRoster();
+                if (!data) return;
+                rosterData = data;
+                const rosterDiv = document.getElementById('roster');
+                rosterDiv.innerHTML = data.map((div, idx) => createDivisionCard(div, idx)).join('');
+                // Add click listeners
+                Array.from(document.getElementsByClassName('division-card')).forEach(card => {
+                    card.onclick = function () {
+                        const idx = this.getAttribute('data-idx');
+                        showModal(rosterData[idx]);
+                    };
+                    card.onkeydown = function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            const idx = this.getAttribute('data-idx');
+                            showModal(rosterData[idx]);
+                        }
+                    };
+                });
+            }
+
+            // SPA navigation
+            document.addEventListener('DOMContentLoaded', function() {
+                const pageHome = document.getElementById('page-home');
+                const pageRoster = document.getElementById('page-roster');
+                const pageCampaign = document.getElementById('page-campaign');
+                const pageReport = document.getElementById('page-report');
+
+                function showPage(page) {
+                    pageHome.style.display = 'none';
+                    pageRoster.style.display = 'none';
+                    pageCampaign.style.display = 'none';
+                    pageReport.style.display = 'none';
+                    if (page === 'home') {
+                        pageHome.style.display = '';
+                        if (!window.rosterData || !Array.isArray(window.rosterData) || window.rosterData.length === 0) {
+                            // Try to load rosterData if not present
+                            ensureRosterData().then(() => {
+                                renderDivisionExpanders();
+                            });
+                        } else {
+                            renderDivisionExpanders();
+                        }
+                    } else if (page === 'roster') {
+                        pageRoster.style.display = '';
+                    } else if (page === 'campaign') {
+                        pageCampaign.style.display = '';
+                        fetchCampaign();
+                    } else if (page === 'report') {
+                        pageReport.style.display = '';
+                        fetchWarReport();
+                    } else {
+                        pageHome.style.display = '';
+                        renderDivisionExpanders();
+                    }
+                }
+
+                function handleHash() {
+                    const hash = window.location.hash.replace('#', '').toLowerCase();
+                    if (hash === 'roster') {
+                        showPage('roster');
+                    } else if (hash === 'campaign') {
+                        showPage('campaign');
+                    } else if (hash === 'report') {
+                        showPage('report');
+                    } else {
+                        showPage('home');
+                    }
+                }
+                window.addEventListener('hashchange', handleHash);
+                handleHash();
+            
+
+            // Home page: Division expanders
+            function renderDivisionExpanders() {
+                const container = document.getElementById('division-expanders');
+                if (!window.rosterData || !Array.isArray(window.rosterData)) {
+                    container.innerHTML = '<div style="color:#ffd700;">Loading division info...</div>';
+                    return;
+                }
+                container.innerHTML = window.rosterData.map((div, idx) => `
+                    <div class="division-expander" tabindex="0" data-idx="${idx}">
+                        <div class="expander-title">
+                            ${div.patch_logo ? `<img src="${div.patch_logo}" alt="${div.name} Patch" style="height:100px;width:auto;vertical-align:middle;margin-right:0.7rem;border-radius:6px;border:2px solid #ffd700;box-shadow:0 2px 8px #ffd70044;">` : ''}
+                            <div>
+                                ${div.name} <span style="font-size:0.9rem;color:#aaa;"> (${div.tag})</span><br>
+                                <span style="font-size:0.95rem;color:#aaa;">Deployment Focus: <span style="color:#fff; font-weight:normal;">${div.deployment.focus ? div.deployment.focus : 'Not specified'}</span></span>
+                            </div>
+                        </div>
+                        <div class="expander-content" style="color: #ffffff;">${div.about ? div.about : 'No description available.'}</div>
+                    </div>
+                `).join('');
+                Array.from(document.getElementsByClassName('division-expander')).forEach(expander => {
+                    expander.onclick = function () {
+                        this.classList.toggle('active');
+                    };
+                    expander.onkeydown = function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            this.classList.toggle('active');
+                        }
+                    };
+                });
+            }
+
+            // Fetch and display campaign data
+            function getFactionClass(faction) {
+                if (!faction) return '';
+                const f = faction.toLowerCase();
+                if (f.includes('automatons')) return 'automatons';
+                if (f.includes('terminids')) return 'terminids';
+                if (f.includes('illuminates')) return 'illuminates';
+                return '';
+            }
+            async function fetchCampaign() {
+                const statusDiv = document.getElementById('campaign-status');
+                statusDiv.innerHTML = '<div style="color:#ffd700;">Loading campaign data...</div>';
+                try {
+                    const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/campaign');
+                    if (!res.ok) throw new Error('Failed to fetch campaign data');
+                    const planetsRaw = await res.json();
+                    const planets = Object.values(planetsRaw);
+                    // Render campaign summary as grid with faction colors
+                    statusDiv.innerHTML = `
+                        <div style='font-size:1.1rem;margin-bottom:1rem;'>Active Planets</div>
+                        <div class='campaign-grid'>
+                            ${planets.slice(0,12).map(p => {
+                                const factionClass = getFactionClass(p.faction);
+                                return `
+                                    <div class='planet-card ${factionClass}'>
+                                        <div class='planet-header'>${p.name}</div>
+                                        Faction: <span>${p.faction}</span><br>
+                                        Health: ${p.health.toLocaleString()} / ${p.maxHealth.toLocaleString()} (${p.percentage ? p.percentage.toFixed(1) : 0}%)<br>
+                                        Defense: ${p.defense ? 'Yes' : 'No'}<br><br>
+                                        Biome: ${p.biome ? p.biome.description : 'Unknown'}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                } catch (e) {
+                    statusDiv.innerHTML = `<div style='color:red;'>Error loading campaign data.</div>`;
+                }
+            }
+
+            // Helper: count non-vacant members in a company
+            function countNonVacantMembers(company) {
+                let count = 0;
+                company.squads.forEach(squad => {
+                    squad.members.forEach(member => {
+                        if (member[0].toLowerCase() !== 'vacant') count++;
+                    });
+                });
+                return count;
+            }
+            // Helper: get companies for a division tag
+            function getDivisionCompanies(tag, rosterData) {
+                const division = rosterData.find(div => div.tag === tag);
+                return division ? division.companies : [];
+            }
+            // Ensure rosterData is available globally
+            async function ensureRosterData() {
+                if (window.rosterData && Array.isArray(window.rosterData) && window.rosterData.length > 0) {
+                    return window.rosterData;
+                }
+                try {
+                    const res = await fetch('https://77th-ab.github.io/data/roster.json');
+                    if (!res.ok) throw new Error('Failed to fetch roster data');
+                    const data = await res.json();
+                    window.rosterData = data;
+                    return data;
+                } catch {
+                    return [];
+                }
+            }
+            // War Report: Cross-reference planets for recommendations
+            async function fetchWarReport() {
+                const reportDiv = document.getElementById('war-report');
+                reportDiv.innerHTML = '<div style="color:#ffd700;">Analyzing battlefronts...</div>';
+                try {
+                    // Fetch campaign data
+                    const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/campaign');
+                    if (!res.ok) throw new Error('Failed to fetch campaign data');
+                    const planetsRaw = await res.json();
+                    const planets = Object.values(planetsRaw);
+                    // Group by faction
+                    const fronts = {
+                        Automatons: [],
+                        Terminids: [],
+                        Illuminates: []
+                    };
+                    planets.forEach(p => {
+                        const faction = p.faction ? p.faction.toLowerCase() : '';
+                        if (faction.includes('automatons')) fronts.Automatons.push(p);
+                        else if (faction.includes('terminids')) fronts.Terminids.push(p);
+                        else if (faction.includes('illuminates')) fronts.Illuminates.push(p);
+                    });
+                    // Recommend 2 planets per front (lowest health %)
+                    function recommend(frontArr) {
+                        return frontArr
+                            .filter(p => typeof p.health === 'number' && typeof p.maxHealth === 'number')
+                            .map(p => ({
+                                ...p,
+                                percentage: p.maxHealth > 0 ? (p.health / p.maxHealth) * 100 : 0
+                            }))
+                            // Sort by planetIndex ascending, then by health percentage ascending
+                            .sort((a, b) => {
+                                if (a.planetIndex !== undefined && b.planetIndex !== undefined) {
+                                    if (a.planetIndex !== b.planetIndex) {
+                                        return a.planetIndex - b.planetIndex;
+                                    }
+                                }
+                                return a.percentage - b.percentage;
+                            })
+                            .slice(0, 2);
+                    }
+                    const recs = {
+                        Automatons: recommend(fronts.Automatons),
+                        Terminids: recommend(fronts.Terminids),
+                        Illuminates: recommend(fronts.Illuminates),
+                    };
+                    // Get companies from rosterData (global)
+                    const roster = await ensureRosterData();
+                    const companies = {
+                        Automatons: getDivisionCompanies('1ST', roster),
+                        Terminids: getDivisionCompanies('2ND', roster),
+                        Illuminates: getDivisionCompanies('3RD', roster),
+                    };
+                    function assignCompaniesToPlanets(companiesArr, planetsArr) {
+                        // Sort companies by non-vacant members desc, then alphabetically
+                        let sorted = (companiesArr || []).slice().sort((a, b) => {
+                            const aCount = countNonVacantMembers(a);
+                            const bCount = countNonVacantMembers(b);
+                            if (aCount === 0 && bCount === 0) {
+                                return a.name.localeCompare(b.name);
+                            }
+                            return bCount - aCount || a.name.localeCompare(b.name);
+                        });
+                        // Assign companies to planets
+                        return planetsArr.map((planet, i) => {
+                            const company = sorted[i % sorted.length];
+                            return { planet, company };
+                        });
+                    }
+                    const assignments = {
+                        Automatons: assignCompaniesToPlanets(companies.Automatons, recs.Automatons),
+                        Terminids: assignCompaniesToPlanets(companies.Terminids, recs.Terminids),
+                        Illuminates: assignCompaniesToPlanets(companies.Illuminates, recs.Illuminates),
+                    };
+                    reportDiv.innerHTML = `
+                        <div style='font-size:1.1rem;margin-bottom:1rem;'>Deployment Recommendations</div>
+                        <div class='campaign-grid'>
+                            <div class='planet-card automatons'>
+                                <div class='planet-header'>Automaton Front</div>
+                                <div style='margin-bottom:0.5rem;'>Recommended Planets & Companies:</div>
+                                ${assignments.Automatons.map(({planet, company}) => `
+                                    <div style='margin-bottom:0.7rem;'>
+                                        <b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
+                                        Health: ${planet.health.toLocaleString()} / ${planet.maxHealth.toLocaleString()}<br>
+                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br>
+                                        <span style='color:#00bfff;'>Assigned Company: ${company ? company.name : 'N/A'}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class='planet-card terminids'>
+                                <div class='planet-header'>Terminid Front</div>
+                                <div style='margin-bottom:0.5rem;'>Recommended Planets & Companies:</div>
+                                ${assignments.Terminids.map(({planet, company}) => `
+                                    <div style='margin-bottom:0.7rem;'>
+                                        <b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
+                                        Health: ${planet.health.toLocaleString()} / ${planet.maxHealth.toLocaleString()}<br>
+                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br>
+                                        <span style='color:#ff9800;'>Assigned Company: ${company ? company.name : 'N/A'}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class='planet-card illuminates'>
+                                <div class='planet-header'>Illuminate Front</div>
+                                <div style='margin-bottom:0.5rem;'>Recommended Planets & Companies:</div>
+                                ${assignments.Illuminates.map(({planet, company}) => `
+                                    <div style='margin-bottom:0.7rem;'>
+                                        <b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
+                                        Health: ${planet.health.toLocaleString()} / ${planet.maxHealth.toLocaleString()}<br>
+                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br>
+                                        <span style='color:#b366ff;'>Assigned Company: ${company ? company.name : 'N/A'}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div style='margin-top:2rem;font-size:0.98rem;color:#ffd700;'>
+                            <b>Advisory:</b> Planet recommendations are selected by prioritizing those closest to Super Earth (lowest planetIndex) and, in case of ties, by lowest health percentage. Company assignments are based on current complement (non-vacant members), with alphabetical fallback. These recommendations are advisory only; actual deployments may vary based on strategic needs and real-time developments.
+                        </div>
+                    `;
+                } catch (e) {
+                    reportDiv.innerHTML = `<div style='color:red;'>Error loading war report data:<br>${e.message}</div>`;
+                }
+            }});
+
+            renderRoster();
+        </script>
+    </body>
+
+</html>
