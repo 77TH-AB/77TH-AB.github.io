@@ -67,7 +67,7 @@
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "#",
         "deployment": {
-            "focus": "Tyranid Front",
+            "focus": "Terminid Front",
             "target_location": "Terrek"
         },
         "companies": [
