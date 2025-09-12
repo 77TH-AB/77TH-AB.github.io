@@ -3,7 +3,7 @@
         "tag": "1ST",
         "name": "First Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "https://77th-ab.giyhub.io/data/1st_division_patch.png",
+        "patch_logo": "https://77th-ab.github.io/data/1st_division_patch.png",
         "about": "Coming Soon.",
         "deployment": {
             "focus": "Automoton Front",
@@ -66,7 +66,7 @@
         "tag": "2ND",
         "name": "Second Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "https://77th-ab.giyhub.io/data/2nd_division_patch.png",
+        "patch_logo": "https://77th-ab.github.io/data/2nd_division_patch.png",
         "about": "Coming Soon.",
         "deployment": {
             "focus": "Terminid Front",
@@ -129,7 +129,7 @@
         "tag": "3RD",
         "name": "Third Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "https://77th-ab.giyhub.io/data/3rd_division_patch.png",
+        "patch_logo": "https://77th-ab.github.io/data/3rd_division_patch.png",
         "about": "Coming Soon.",
         "deployment": {
             "focus": "Illuminate Front",
@@ -192,7 +192,7 @@
         "tag": "4TH",
         "name": "Fourth Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "https://77th-ab.giyhub.io/data/4th_division_patch.png",
+        "patch_logo": "https://77th-ab.github.io/data/4th_division_patch.png",
         "about": "Coming Soon.",
         "deployment": {
             "focus": "Quick Reaction Force",
