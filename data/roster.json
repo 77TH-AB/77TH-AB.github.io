@@ -4,6 +4,7 @@
         "name": "First Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "#",
+        "about": "",
         "deployment": {
             "focus": "Automoton Front",
             "target_location": "Fenmire"
@@ -66,6 +67,7 @@
         "name": "Second Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "#",
+        "about": "",
         "deployment": {
             "focus": "Terminid Front",
             "target_location": "Terrek"
@@ -128,6 +130,7 @@
         "name": "Third Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "#",
+        "about": "",
         "deployment": {
             "focus": "Illuminate Front",
             "target_location": "Seyshel Beach"
@@ -190,6 +193,7 @@
         "name": "Fourth Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "#",
+        "about": "",
         "deployment": {
             "focus": "Quick Reaction Force",
             "target_location": "Not Deployed"
