@@ -4,7 +4,7 @@
         "name": "First Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.github.io/data/1st_division_patch.png",
-        "about": "The 1st Division specializes in campaigns against the Automaton threat.<br><br>Hardened by brutal mechanized warfare, its troops are trained in siege-breaking, defensive countermeasures, and systematic destruction of fortified enemy lines. The Division thrives in attrition-heavy operations where precision, discipline, and resilience decide victory.",
+        "about": "The 1st Division specializes in campaigns against the Automaton threat. Hardened by brutal mechanized warfare, its troops are trained in siege-breaking, defensive countermeasures, and systematic destruction of fortified enemy lines.<br><br>This Division thrives in attrition-heavy operations where precision, discipline, and resilience decide victory.",
         "deployment": {
             "focus": "Automoton Front",
             "target_location": "Fenmire"
@@ -67,7 +67,7 @@
         "name": "Second Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.github.io/data/2nd_division_patch.png",
-        "about": "Coming Soon.",
+        "about": "The 2nd Division is committed to facing the relentless swarms of Terminids. Adaptable and aggressive, its Companies excel in rapid strikes, containment operations, and coordinated fire discipline to hold back overwhelming numbers.<br><br>Every trooper in the 2nd understands that survival depends on unity — no soldier fights alone when the swarm comes crashing down.",
         "deployment": {
             "focus": "Terminid Front",
             "target_location": "Terrek"
@@ -130,7 +130,7 @@
         "name": "Third Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.github.io/data/3rd_division_patch.png",
-        "about": "Coming Soon.",
+        "about": "The 3rd Division stands against the elusive Illuminate, where warfare is as much about outthinking as outgunning the enemy. Its forces are trained in counter-intelligence, fast redeployment, and disruption tactics to neutralize energy-based weaponry and unpredictable battlefield strategies.<br><br>Where the enemy relies on deception and alien technology, the 3rd answers with clarity, precision, and overwhelming coordination.",
         "deployment": {
             "focus": "Illuminate Front",
             "target_location": "Seyshel Beach"
@@ -193,7 +193,7 @@
         "name": "Fourth Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.github.io/data/4th_division_patch.png",
-        "about": "Coming Soon.",
+        "about": "The 4th Division is the Brigade’s spearpoint, deployed wherever the need is greatest. Unlike the other Divisions, it is not tied to a single front — instead, it reinforces collapsing lines, exploits breakthroughs, and answers escalations across the galactic war.<br><br>Fast, flexible, and unrelenting, the QRF is the embodiment of the Brigade’s promise: to bring the fight wherever it is needed most.",
         "deployment": {
             "focus": "Quick Reaction Force",
             "target_location": "Not Deployed"
