@@ -4,7 +4,7 @@
         "name": "First Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.giyhub.io/data/1st_division_patch.png",
-        "about": "",
+        "about": "Coming Soon.",
         "deployment": {
             "focus": "Automoton Front",
             "target_location": "Fenmire"
@@ -67,7 +67,7 @@
         "name": "Second Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.giyhub.io/data/2nd_division_patch.png",
-        "about": "",
+        "about": "Coming Soon.",
         "deployment": {
             "focus": "Terminid Front",
             "target_location": "Terrek"
@@ -130,7 +130,7 @@
         "name": "Third Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.giyhub.io/data/3rd_division_patch.png",
-        "about": "",
+        "about": "Coming Soon.",
         "deployment": {
             "focus": "Illuminate Front",
             "target_location": "Seyshel Beach"
@@ -193,7 +193,7 @@
         "name": "Fourth Division",
         "commander": ["Vacant", "Colonel"],
         "patch_logo": "https://77th-ab.giyhub.io/data/4th_division_patch.png",
-        "about": "",
+        "about": "Coming Soon.",
         "deployment": {
             "focus": "Quick Reaction Force",
             "target_location": "Not Deployed"
