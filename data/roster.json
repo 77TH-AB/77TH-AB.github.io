@@ -3,7 +3,7 @@
         "tag": "1ST",
         "name": "First Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "#",
+        "patch_logo": "https://77th-ab.giyhub.io/data/1st_division_patch.png",
         "about": "",
         "deployment": {
             "focus": "Automoton Front",
@@ -11,7 +11,7 @@
         },
         "companies": [
             {
-                "tag": "1DIC",
+                "tag": "1IC",
                 "name": "Iron Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
@@ -36,7 +36,7 @@
                 ]
             },
             {
-                "tag": "1DSC",
+                "tag": "1SC",
                 "name": "Steel Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
@@ -66,7 +66,7 @@
         "tag": "2ND",
         "name": "Second Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "#",
+        "patch_logo": "https://77th-ab.giyhub.io/data/2nd_division_patch.png",
         "about": "",
         "deployment": {
             "focus": "Terminid Front",
@@ -74,7 +74,7 @@
         },
         "companies": [
             {
-                "tag": "2DAC",
+                "tag": "2AC",
                 "name": "Ash Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
@@ -99,7 +99,7 @@
                 ]
             },
             {
-                "tag": "2DTC",
+                "tag": "2TC",
                 "name": "Thorn Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
@@ -129,7 +129,7 @@
         "tag": "3RD",
         "name": "Third Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "#",
+        "patch_logo": "https://77th-ab.giyhub.io/data/3rd_division_patch.png",
         "about": "",
         "deployment": {
             "focus": "Illuminate Front",
@@ -137,7 +137,7 @@
         },
         "companies": [
             {
-                "tag": "3DSC",
+                "tag": "3SC",
                 "name": "Specter Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
@@ -162,7 +162,7 @@
                 ]
             },
             {
-                "tag": "3DWC",
+                "tag": "3WC",
                 "name": "Wraith Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
@@ -192,7 +192,7 @@
         "tag": "4TH",
         "name": "Fourth Division",
         "commander": ["Vacant", "Colonel"],
-        "patch_logo": "#",
+        "patch_logo": "https://77th-ab.giyhub.io/data/4th_division_patch.png",
         "about": "",
         "deployment": {
             "focus": "Quick Reaction Force",
@@ -200,7 +200,7 @@
         },
         "companies": [
             {
-                "tag": "4DFC",
+                "tag": "4FC",
                 "name": "Falcon Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
@@ -225,7 +225,7 @@
                 ]
             },
             {
-                "tag": "4DSC",
+                "tag": "4SC",
                 "name": "Saber Company",
                 "commander": ["Vacant", "Major"],
                 "squads": [
