@@ -7,6 +7,28 @@
         <title>77th Assault Brigade - Helldivers 2 Community</title>
         <link rel="icon" href="https://77th-ab.github.io/data/logo.png">
         <style>
+            /* Vacant member link styles */
+            .vacant-link {
+                color: #ccc !important;
+                font-style: italic;
+                text-decoration: none;
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+            .vacant-link:hover {
+                color: #dbab10 !important;
+                text-decoration: underline;
+            }
+            /* Home page vertical spacing */
+            #page-home .hero-img {
+                margin-bottom: 3rem;
+            }
+            #page-home .about-section {
+                margin-bottom: 3rem;
+            }
+            #division-expanders {
+                margin-top: 1.5rem;
+            }
             .hero-img {
                 width: -webkit-fill-available;
                 max-width: -webkit-fill-available;
@@ -16,9 +38,13 @@
                 margin-bottom: 0;
                 box-shadow: 0 4px 32px #000a;
             }
-            .about-section {
+            .page-container, .about-section, .division-expander, .intro, section, #war-report, #active-planets, #division-expanders {
                 max-width: 900px;
-                margin: 2rem auto 1.5rem auto;
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+            }
+            .about-section {
                 background: #222;
                 border-radius: 14px;
                 box-shadow: 0 2px 18px #dbab1033;
@@ -27,8 +53,6 @@
                 font-size: 1.15rem;
             }
             .division-expander {
-                max-width: 900px;
-                margin: 1.2rem auto;
                 background: #18181a;
                 border-radius: 10px;
                 box-shadow: 0 2px 12px #dbab1022;
@@ -38,6 +62,7 @@
                 cursor: pointer;
                 border: 2px solid #dbab10;
                 transition: box-shadow 0.2s, border-color 0.2s;
+                margin-top: 1rem;
             }
             .division-expander:hover {
                 box-shadow: 0 8px 32px #dbab1099;
@@ -72,8 +97,8 @@
                 transition: background 0.2s, color 0.2s;
             }
             .menu-modal-btn:hover {
-                background: #fff;
-                color: #dbab10;
+                background: #dbab10a8;
+                color: #18181a;
             }
             .menu-modal-bg {
                 display: none;
@@ -141,7 +166,7 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                padding: 2rem 1rem 1rem 1rem;
+                padding: 1rem 1rem 1rem 1rem;
                 background: #18181a;
                 border-bottom: 4px solid #dbab10;
                 box-shadow: 0 2px 12px #000a;
@@ -183,9 +208,16 @@
             }
 
             .intro, section {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 1rem;
+                /* Use .page-container for uniform width */
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            @media (max-width: 700px) {
+                .page-container, .about-section, .division-expander, .intro, section, #war-report, #active-planets, #division-expanders {
+                    max-width: 98vw;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                }
             }
 
             .roster {
@@ -204,7 +236,7 @@
                 background: #222;
                 border-radius: 12px;
                 box-shadow: 0 2px 18px #dbab1033;
-                    padding: 1.2rem 0.8rem;
+                padding: 1.2rem 0.8rem;
                 min-width: 280px;
                 /* max-width: 340px; */
                 flex: 1 1 280px;
@@ -513,7 +545,7 @@
         <main>
             <div id="page-home" style="display:none;">
                 <img src="https://77th-ab.github.io/data/orbit_sc_01.jpg" alt="Super Earth Home" class="hero-img">
-                <div class="about-section">
+                <div class="about-section" style="color:#fff;">
                     <h2 style="color:#dbab10;margin-top:0;">About the 77th Assault Brigade</h2>
                     <p>The 77th Assault Brigade is a Helldivers 2 community dedicated to coordinated gameplay, camaraderie, and galactic liberation. We operate as a structured brigade with multiple divisions, each specializing in different aspects of the war effort. Our mission: defend Super Earth and bring Managed Democracy to the galaxy!</p>
                 </div>
@@ -521,36 +553,55 @@
             </div>
             <div id="page-roster">
                 <img src="https://77th-ab.github.io/data/orbit_sc_01.jpg" alt="Brigade Roster" class="hero-img" style="max-height:260px;object-fit:cover;">
-                <div class="intro">
-                    Welcome to the 77th Assault Brigade! We are a Helldivers 2 community dedicated to coordinated gameplay,
-                    camaraderie, and galactic liberation. Join us and become part of the fight for Super Earth!
-                </div>
                 <section>
-                    <h2 style="color:#dbab10;">Brigade Roster</h2>
+                    <h2 style="color:#dbab10;">Official Roster</h2>
+                    <p style="margin-bottom: 2rem;">Below you will find the official roster of the 77th Assault Brigade, including all active Helldivers and their respective roles.</p>
                     <div id="roster" class="roster">
                         <!-- Dynamic content -->
                     </div>
                 </section>
             </div>
-            <div id="page-campaign" style="display:none;">
-                <img src="https://77th-ab.github.io/data/ground_sc_01.jpg" alt="War Campaign" class="hero-img" style="max-height:260px;object-fit:cover;">
-                <div class="intro">
-                    <h2 style="color:#dbab10;">War Campaign Status</h2>
-                    <div id="campaign-status">
-                        <!-- Campaign data will appear here -->
-                    </div>
-                </div>
-            </div>
             <div id="page-report" style="display:none;">
                 <img src="https://77th-ab.github.io/data/orbit_sc_01.jpg" alt="War Report" class="hero-img" style="max-height:260px;object-fit:cover;">
                 <div class="intro">
-                    <h2 style="color:#dbab10;">War Report & Deployment Recommendations</h2>
+                    <h2 style="color:#dbab10;">War Room</h2>
                     <div id="war-report">
-                        <!-- War report will appear here -->
+                        <!-- Deployment Recommendations will appear here -->
+                    </div>
+                    <br><hr>
+                    <div id="active-planets">
+                        <!-- Active Planets grid will appear here -->
                     </div>
                 </div>
             </div>
-            <footer style="width:-webkit-fill-available;background:#18181a;border-top:3px solid #dbab10;padding:1.2rem 0 1.2rem 0;text-align:center;color:#dbab10;font-size:1rem;letter-spacing:1px;box-shadow:0 -2px 12px #000a;margin-top:2rem;">
+            <div id="page-join" style="display:none;">
+                <img src="https://77th-ab.github.io/data/ground_sc_01.jpg" alt="Join the Brigade" class="hero-img" style="max-height:260px;object-fit:cover;">
+                <div class="about-section" style="margin-top:3rem;">
+                    <h2 style="color:#dbab10;margin-top:0;">Join the 77th Assault Brigade</h2>
+                    <p style="color: #fff;">Welcome, Helldiver! The 77th Assault Brigade is a friendly, organized community for Helldivers 2 players who value teamwork, respect, and fun. Before joining, please review our rules and instructions below.</p>
+                    <h3 style="color:#dbab10;">Community Rules</h3>
+                    <p style="color:#fff;font-size:1.08rem;line-height:1.7;max-width:700px;margin:0 auto 1.2rem auto;">The following rules are set out as a guideline for all members, however full rules can be found on our Discord server during registration:</p>
+                    <ul style="color:#fff;font-size:1.08rem;line-height:1.7;max-width:700px;margin:0 auto 1.2rem auto;">
+                        <li><b>Respect all members</b> – No harassment, hate speech, slurs or discrimination will be tolerated.</li>
+                        <li><b>Play cooperatively</b> – Work as a team, follow squad/command structure, and help new players.</li>
+                        <li><b>No cheating or exploits</b> – Play fair and uphold the spirit of the game.</li>
+                        <li><b>Keep chat friendly</b> – No spamming, advertising, or NSFW content.</li>
+                        <li><b>Follow leadership instructions</b> – Respect division/company/squad leaders during operations.</li>
+                        <li><b>Have fun!</b> – We're here to enjoy Helldivers 2 together.</li>
+                    </ul>
+                    <h3 style="color:#dbab10;">How to Join</h3>
+                    <ol style="color:#fff;font-size:1.08rem;line-height:1.7;max-width:700px;margin:0 auto 1.2rem auto;">
+                        <li>Join our Discord server: <a href="https://discord.gg/cer57Wdcr7" target="_blank" style="color:#dbab10;text-decoration:underline;">discord.gg/cer57Wdcr7</a></li>
+                        <li>Read the <b>rules</b> and follow the on-screen instructions to agree.</li>
+                        <li>Introduce yourself in the #cantina channel.</li>
+                        <li>Read the pinned messages in the #welcome channel.</li>
+                        <li>Check the <b>roster</b> page for division/company info and request placement if desired.</li>
+                        <li>Start diving! Participate in games, events, and campaigns.</li>
+                    </ol>
+                    <div style="margin-top:1.2rem;color:#dbab10;font-size:1.05rem;">Questions? Contact a Democracy Officer on Discord.</div>
+                </div>
+            </div>
+            <footer style="width:-webkit-fill-available;background:#18181a;border-top:3px solid #dbab10;padding:1.2rem 0 1.2rem 0;text-align:center;color:#dbab10;font-size:1rem;letter-spacing:1px;box-shadow:0 -2px 12px #000a;margin-top:3rem;">
                 &copy; 2025 77th Assault Brigade &mdash; Helldivers 2 Community.<br><small style="color: #aaa;"><i>Not affiliated with Arrowhead Game Studios or Sony Interactive Entertainment. For community use only.</i></small>
             </footer>
         </main>
@@ -571,9 +622,9 @@
                     <h2 style='color:#dbab10;'>Menu</h2>
                     <div style='margin:1.2rem 0;'>
                         <button class='menu-btn' id='menu-home'>Home</button><br><br>
-                        <button class='menu-btn' id='menu-roster'>Roster</button><br><br>
-                        <button class='menu-btn' id='menu-campaign'>War Campaign</button><br><br>
-                        <button class='menu-btn' id='menu-report'>War Report</button>
+                        <button class='menu-btn' id='menu-roster'>Official Roster</button><br><br>
+                        <button class='menu-btn' id='menu-report'>War Room</button><br><br>
+                        <button class='menu-btn' id='menu-join'>Joining Up</button>
                     </div>
                 </div>`;
                 // Add event listeners to close modal on menu selection
@@ -585,12 +636,12 @@
                     window.location.hash = '#roster';
                     closeMenuModal();
                 };
-                menuModalBg.querySelector('#menu-campaign').onclick = function() {
-                    window.location.hash = '#campaign';
-                    closeMenuModal();
-                };
                 menuModalBg.querySelector('#menu-report').onclick = function() {
                     window.location.hash = '#report';
+                    closeMenuModal();
+                };
+                menuModalBg.querySelector('#menu-join').onclick = function() {
+                    window.location.hash = '#join';
                     closeMenuModal();
                 };
                 menuModalBg.style.display = 'block';
@@ -640,19 +691,33 @@
                 return `
         <button class="modal-close" aria-label="Close">&times;</button>
         <h2>${division.name} <span style="font-size:0.9rem;color:#aaa;">(${division.tag})</span></h2>
-        <div class="commander">Division Commander: ${division.commander[0]} (${division.commander[1]})</div>
+        <div class="commander">Division Commander: ${
+            division.commander[0].toLowerCase() === 'vacant'
+                ? `<a href=\"#join\" class=\"vacant-link\" title=\"Join Up\" onclick=\"closeModal()\">Vacant</a>`
+                : division.commander[0]
+        } (${division.commander[1]})</div>
         <div class="deployment">Deployment: <b>${division.deployment.focus}</b></div>
         <hr style="border:1px solid #dbab10; margin:1rem 0;">
         <div class="company-list">
             ${division.companies.map(company => `
                 <div class="company">
                     <h3>${company.name} <span style="font-size:0.9rem;color:#aaa;">(${company.tag})</span></h3>
-                    <div class="commander">CO: ${company.commander[0]} (${company.commander[1]})</div>
+                    <div class="commander">CO: ${
+                        company.commander[0].toLowerCase() === 'vacant'
+                            ? `<a href=\"#join\" class=\"vacant-link\" title=\"Join Up\" onclick=\"closeModal()\">Vacant</a>`
+                            : company.commander[0]
+                    } (${company.commander[1]})</div>
                     ${company.squads.map(squad => `
                         <div class="squad">
                             <div class="squad-name">${squad.name}</div>
                             <ul class="members">
-                                ${squad.members.map(member => `<li>${member[0]} (${member[1]})</li>`).join('')}
+                                ${squad.members.map(member => {
+                                    if (member[0].toLowerCase() === 'vacant') {
+                                        return `<li><a href="#join" class="vacant-link" title="Join Up" onclick="closeModal()">Vacant</a> (${member[1]})</li>`;
+                                    } else {
+                                        return `<li>${member[0]} (${member[1]})</li>`;
+                                    }
+                                }).join('')}
                             </ul>
                         </div>
                     `).join('')}
@@ -716,14 +781,16 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const pageHome = document.getElementById('page-home');
                 const pageRoster = document.getElementById('page-roster');
-                const pageCampaign = document.getElementById('page-campaign');
+                // const pageCampaign = document.getElementById('page-campaign'); // removed
                 const pageReport = document.getElementById('page-report');
+                const pageJoin = document.getElementById('page-join');
 
                 function showPage(page) {
                     pageHome.style.display = 'none';
                     pageRoster.style.display = 'none';
-                    pageCampaign.style.display = 'none';
+                    // pageCampaign.style.display = 'none'; // removed
                     pageReport.style.display = 'none';
+                    pageJoin.style.display = 'none';
                     if (page === 'home') {
                         pageHome.style.display = '';
                         if (!window.rosterData || !Array.isArray(window.rosterData) || window.rosterData.length === 0) {
@@ -736,12 +803,11 @@
                         }
                     } else if (page === 'roster') {
                         pageRoster.style.display = '';
-                    } else if (page === 'campaign') {
-                        pageCampaign.style.display = '';
-                        fetchCampaign();
                     } else if (page === 'report') {
                         pageReport.style.display = '';
-                        fetchWarReport();
+                        fetchWarReportWithPlanets();
+                    } else if (page === 'join') {
+                        pageJoin.style.display = '';
                     } else {
                         pageHome.style.display = '';
                         renderDivisionExpanders();
@@ -752,10 +818,10 @@
                     const hash = window.location.hash.replace('#', '').toLowerCase();
                     if (hash === 'roster') {
                         showPage('roster');
-                    } else if (hash === 'campaign') {
-                        showPage('campaign');
                     } else if (hash === 'report') {
                         showPage('report');
+                    } else if (hash === 'join') {
+                        showPage('join');
                     } else {
                         showPage('home');
                     }
@@ -775,9 +841,9 @@
                     <div class="division-expander" tabindex="0" data-idx="${idx}">
                         <div class="expander-title">
                             ${div.patch_logo ? `<img src="${div.patch_logo}" alt="${div.name} Patch" style="height:100px;width:auto;vertical-align:middle;margin-right:0.7rem;border-radius:6px;border:2px solid #dbab10;box-shadow:0 2px 8px #dbab1044;">` : ''}
-                            <div>
+                            <div style="margin-top: 3px;">
                                 ${div.name} <span style="font-size:0.9rem;color:#aaa;"> (${div.tag})</span><br>
-                                <span style="font-size:0.95rem;color:#aaa;">Deployment Focus: <span style="color:#fff; font-weight:normal;">${div.deployment.focus ? div.deployment.focus : 'Not specified'}</span></span>
+                                <span style="font-size:0.95rem;color:#aaa;"><br>Deployment Focus<br><span style="color:#fff; font-weight:normal;font-style:italic;">${div.deployment.focus ? div.deployment.focus : 'Not specified'}</span></span>
                             </div>
                         </div>
                         <div class="expander-content" style="color: #ffffff;">${div.about ? div.about : 'No description available.'}</div>
@@ -811,10 +877,12 @@
                     const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/campaign');
                     if (!res.ok) throw new Error('Failed to fetch campaign data');
                     const planetsRaw = await res.json();
-                    const planets = Object.values(planetsRaw);
+                    let planets = Object.values(planetsRaw);
+                    // Sort planets by planetIndex ascending
+                    planets = planets.filter(p => typeof p.planetIndex === 'number').sort((a, b) => a.planetIndex - b.planetIndex);
                     // Render campaign summary as grid with faction colors
                     statusDiv.innerHTML = `
-                        <div style='font-size:1.1rem;margin-bottom:1rem;'>Active Planets</div>
+                        <div style='font-size:1.1rem;margin-bottom:2rem;margin-top:2rem;'>Top Active Planets</div>
                         <div class='campaign-grid'>
                             ${planets.slice(0,12).map(p => {
                                 const factionClass = getFactionClass(p.faction);
@@ -866,9 +934,11 @@
                 }
             }
             // War Report: Cross-reference planets for recommendations
-            async function fetchWarReport() {
+            async function fetchWarReportWithPlanets() {
                 const reportDiv = document.getElementById('war-report');
+                const planetsDiv = document.getElementById('active-planets');
                 reportDiv.innerHTML = '<div style="color:#dbab10;">Analyzing battlefronts...</div>';
+                planetsDiv.innerHTML = '';
                 try {
                     // Fetch campaign data
                     const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/campaign');
@@ -940,17 +1010,18 @@
                         Illuminates: assignCompaniesToPlanets(companies.Illuminates, recs.Illuminates),
                     };
                     reportDiv.innerHTML = `
-                        <div style='font-size:1.1rem;margin-bottom:1rem;'>Deployment Recommendations</div>
+                        <div style='font-size:1.1rem;margin-bottom:2rem;'>AI Deployment Recommendations</div>
                         <div class='campaign-grid'>
                             <div class='planet-card automatons'>
                                 <div class='planet-header'>Automaton Front</div>
                                 <div style='margin-bottom:0.5rem;'>Recommended Planets & Companies:</div>
                                 ${assignments.Automatons.map(({planet, company}) => `
-                                    <div style='margin-bottom:0.7rem;'>
-                                        <b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
+                                    <div style='margin-top:2rem;'>
+                                        <hr style='border-top: 1px solid #eee;'>
+                                        <br><b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
                                         Health: ${planet.health.toLocaleString()} / ${planet.maxHealth.toLocaleString()}<br>
-                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br>
-                                        <span style='color:#00bfff;'>Assigned Company: ${company ? company.name : 'N/A'}</span>
+                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br><br>
+                                        <span style='color:#00bfff;'>Recommended Company:<br><span style='color:#aaa;'>${company ? company.name : 'N/A'}</span></span>
                                     </div>
                                 `).join('')}
                             </div>
@@ -958,11 +1029,12 @@
                                 <div class='planet-header'>Terminid Front</div>
                                 <div style='margin-bottom:0.5rem;'>Recommended Planets & Companies:</div>
                                 ${assignments.Terminids.map(({planet, company}) => `
-                                    <div style='margin-bottom:0.7rem;'>
-                                        <b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
+                                    <div style='margin-top:2rem;'>
+                                        <hr style='border-top: 1px solid #eee;'>
+                                        <br><b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
                                         Health: ${planet.health.toLocaleString()} / ${planet.maxHealth.toLocaleString()}<br>
-                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br>
-                                        <span style='color:#ff9800;'>Assigned Company: ${company ? company.name : 'N/A'}</span>
+                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br><br>
+                                        <span style='color:#ff9800;'>Recommended Company:<br><span style='color:#aaa;'>${company ? company.name : 'N/A'}</span></span>
                                     </div>
                                 `).join('')}
                             </div>
@@ -970,21 +1042,42 @@
                                 <div class='planet-header'>Illuminate Front</div>
                                 <div style='margin-bottom:0.5rem;'>Recommended Planets & Companies:</div>
                                 ${assignments.Illuminates.map(({planet, company}) => `
-                                    <div style='margin-bottom:0.7rem;'>
-                                        <b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
+                                    <div style='margin-top:2rem;'>
+                                        <hr style='border-top: 1px solid #eee;'>
+                                        <br><b>${planet.name}</b> (${planet.percentage.toFixed(1)}%)<br>
                                         Health: ${planet.health.toLocaleString()} / ${planet.maxHealth.toLocaleString()}<br>
-                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br>
-                                        <span style='color:#b366ff;'>Assigned Company: ${company ? company.name : 'N/A'}</span>
+                                        Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br><br>
+                                        <span style='color:#b366ff;'>Recommended Company:<br><span style='color:#aaa;'>${company ? company.name : 'N/A'}</span></span>
                                     </div>
                                 `).join('')}
                             </div>
                         </div>
                         <div style='margin-top:2rem;font-size:0.98rem;color:#dbab10;'>
-                            <b>Advisory:</b> <span style="color: #ffffff;">Planet recommendations are selected by prioritizing those closest to Super Earth (lowest planetIndex) and, in case of ties, by lowest health percentage. Company assignments are based on current complement (non-vacant members), with alphabetical fallback. These recommendations are advisory only; actual deployments may vary based on strategic needs and real-time developments.</span>
+                            <b>Advisory:</b><br><span style="color: #ffffff;">Planet recommendations are selected by prioritizing those closest to Super Earth (lowest planetIndex) and, in case of ties, by lowest health percentage.<br><br>Company assignments are based on current complement (non-vacant members), with alphabetical fallback. These recommendations are advisory only; actual deployments may vary based on strategic needs and real-time developments.</span>
+                        </div>
+                    `;
+                    // Active Planets grid below recommendations
+                    let sortedPlanets = planets.filter(p => typeof p.planetIndex === 'number').sort((a, b) => a.planetIndex - b.planetIndex);
+                    planetsDiv.innerHTML = `
+                        <div style='font-size:1.1rem;margin-bottom:2rem;margin-top:2rem;'>Top 12 Active Planets</div>
+                        <div class='campaign-grid'>
+                            ${sortedPlanets.slice(0,12).map(p => {
+                                const factionClass = getFactionClass(p.faction);
+                                return `
+                                    <div class='planet-card ${factionClass}'>
+                                        <div class='planet-header'>${p.name}</div>
+                                        Faction: <span>${p.faction}</span><br>
+                                        Health: ${p.health.toLocaleString()} / ${p.maxHealth.toLocaleString()} (${p.percentage ? p.percentage.toFixed(1) : 0}%)<br>
+                                        Defense: ${p.defense ? 'Yes' : 'No'}<br><br>
+                                        Biome: ${p.biome ? p.biome.description : 'Unknown'}
+                                    </div>
+                                `;
+                            }).join('')}
                         </div>
                     `;
                 } catch (e) {
                     reportDiv.innerHTML = `<div style='color:red;'>Error loading war report data:<br>${e.message}</div>`;
+                    planetsDiv.innerHTML = '';
                 }
             }});
 
