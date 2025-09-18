@@ -981,9 +981,15 @@ async function fetchWarReportWithPlanets() {
                         let existing = document.getElementById(cardId);
                         let cardHtml = `<div id='${cardId}' style='margin-top:2rem;'>`;
                         cardHtml += `<hr style='border-top: 1px solid #eee;'>`;
-                        cardHtml += `<br><b>${planet.name}</b><br><span style='color:#dbab10;'>(Completion: ${planet.completion.toFixed(1)}%)</span><br>`;
-                        cardHtml += `Health: ${planet.health.toLocaleString()} / ${planet.maxHealth.toLocaleString()}<br>`;
-                        cardHtml += `Biome: ${planet.biome ? planet.biome.description : 'Unknown'}<br><br>`;
+                        cardHtml += `<br><b>${planet.name}</b><br><span style='color:#dbab10;'>(Completion: ${planet.completion.toFixed(1)}%)</span>`;
+                        // Progress bar
+                        let barColor = '#fe6d72'; // red for low
+                        if (planet.completion >= 75) barColor = '#00db4a'; // green
+                        else if (planet.completion >= 25) barColor = '#ffc100'; // yellow
+                        else if (planet.completion < 25) barColor = '#fe6d72'; // red
+                        cardHtml += `<div style='width:100%;height:18px;background:#313131;border-radius:8px;margin:8px 0 8px 0;box-shadow:0 2px 8px #0002;'><div style='height:100%;width:${planet.completion}%;background:${barColor};border-radius:8px;transition:width 0.5s;'></div></div>`;
+                        cardHtml += `<b>Health:</b> <i style="color:#aaa;">${planet.health.toLocaleString()}</i> / <i style="color:#aaa;">${planet.maxHealth.toLocaleString()}</i><br>`;
+                        cardHtml += `<b>Biome:</b> ${planet.biome ? planet.biome.description : 'Unknown'}<br><br>`;
                         cardHtml += `<span style='color:${faction==='Automatons'?'#00bfff':faction==='Terminids'?'#ff9800':'#b366ff'};'>Recommended Company:<br><span style='color:#aaa;'>${company ? company.name : 'N/A'}</span></span>`;
                         cardHtml += `</div>`;
                         reportHtml += cardHtml;
