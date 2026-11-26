@@ -1,0 +1,631 @@
+.vacant-link {
+    color: #ccc !important;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.vacant-link:hover {
+    color: #dbab10 !important;
+    text-decoration: underline;
+}
+
+#page-home .hero-img {
+    margin-bottom: 3rem;
+}
+
+#page-home .about-section {
+    margin-bottom: 3rem;
+}
+
+#division-expanders {
+    margin-top: 1.5rem;
+}
+
+.hero-img {
+    width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 0;
+    box-shadow: 0 4px 32px #000a;
+}
+
+.page-container,
+.about-section,
+.division-expander,
+.intro,
+section,
+#war-report,
+#active-planets,
+#division-expanders {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.about-section {
+    background: #222;
+    border-radius: 14px;
+    box-shadow: 0 2px 18px #dbab1033;
+    padding: 2rem 2rem 1.5rem 2rem;
+    color: #dbab10;
+    font-size: 1.15rem;
+}
+
+.division-expander {
+    background: #18181a;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px #dbab1022;
+    padding: 1.2rem 1.5rem;
+    color: #fff;
+    font-size: 1.08rem;
+    cursor: pointer;
+    border: 2px solid #dbab10;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    margin-top: 1rem;
+}
+
+.division-expander:hover {
+    box-shadow: 0 8px 32px #dbab1099;
+    border-color: #fff;
+}
+
+.division-expander .expander-title {
+    display: inline-flex;
+    font-weight: bold;
+    color: #dbab10;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.expander-content {
+    display: none;
+    margin-top: 0.7rem;
+    color: #dbab10;
+    font-size: 1.05rem;
+}
+
+.division-expander.active .expander-content {
+    display: block;
+}
+
+.menu-modal-btn {
+    background: #dbab10;
+    color: #18181a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    padding: 0.7rem 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #dbab1044;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu-modal-btn:hover {
+    background: #dbab10a8;
+    color: #18181a;
+}
+
+.menu-modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.menu-modal-bg[style*="display: block"] {
+    opacity: 1;
+}
+
+.menu-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: #18181a;
+    border-radius: 18px;
+    box-shadow: 0 8px 48px #dbab1099;
+    padding: 2rem 2.2rem 1.5rem 2.2rem;
+    min-width: 320px;
+    max-width: 95vw;
+    z-index: 2100;
+    border: 3px solid #dbab10;
+    animation: modalIn 0.3s;
+    color: #fff;
+    text-align: center;
+}
+
+.menu-modal .menu-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.7rem;
+    color: #dbab10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.menu-modal .menu-modal-close:hover {
+    color: #fff;
+}
+
+.company-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+@media (max-width: 700px) {
+    .company-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Orbitron', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: #111112;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 1rem 1rem 1rem;
+    background: #18181a;
+    border-bottom: 4px solid #dbab10;
+    box-shadow: 0 2px 12px #000a;
+}
+
+header img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 12px #dbab10);
+}
+
+h1 {
+    font-size: 2.7rem;
+    margin: 0.5rem 0 0.2rem 0;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 12px #dbab1044;
+    color: #dbab10;
+    font-weight: 900;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 8px #dbab1044;
+    font-weight: 700;
+}
+
+main {
+    width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
+    margin: 0;
+    padding: 0;
+    background: #18181a;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.intro,
+section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+
+    .page-container,
+    .about-section,
+    .division-expander,
+    .intro,
+    section,
+    #war-report,
+    #active-planets,
+    #division-expanders {
+        max-width: 98vw;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+.roster {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    .roster {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}
+
+.division-card {
+    background: #222;
+    border-radius: 12px;
+    box-shadow: 0 2px 18px #dbab1033;
+    padding: 1.2rem 0.8rem;
+    min-width: 280px;
+    /* max-width: 340px; */
+    flex: 1 1 280px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    border: 2px solid #dbab10;
+    position: relative;
+}
+
+.division-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px #dbab1099;
+    border-color: #fff;
+}
+
+.division-title {
+    color: #dbab10;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.division-commander {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+    color: #fff;
+}
+
+.division-deployment {
+    font-size: 0.98rem;
+    margin-bottom: 0.7rem;
+    color: #dbab10;
+}
+
+.modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal-bg[style*="display: block"] {
+    opacity: 1;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: #18181a;
+    border-radius: 18px;
+    box-shadow: 0 8px 48px #dbab1099;
+    padding: 2rem 2.2rem 1.5rem 2.2rem;
+    min-width: 320px;
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1100;
+    border: 3px solid #dbab10;
+    animation: modalIn 0.3s;
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .modal {
+        min-width: 98vw;
+        max-width: 98vw;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .company-list {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.7rem;
+    color: #dbab10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+.modal h2 {
+    color: #dbab10;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+}
+
+.modal .commander {
+    color: #fff;
+    font-size: 1.05rem;
+}
+
+.modal .deployment {
+    color: #dbab10;
+    font-size: 1rem;
+}
+
+.modal .company {
+    background: #222;
+    border-radius: 8px;
+    border: 2px solid #dbab10;
+    margin-bottom: 1.2rem;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 12px #dbab1022;
+}
+
+.modal .company h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    color: #dbab10;
+    font-weight: 700;
+}
+
+.modal .company .commander {
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 0.98rem;
+}
+
+.modal .squad {
+    margin-bottom: 0.7rem;
+    padding-left: 0.5rem;
+}
+
+.modal .squad-name {
+    font-weight: bold;
+    color: #dbab10;
+    font-size: 0.98rem;
+}
+
+.modal .members {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.2rem 0 0.5rem 0;
+}
+
+.modal .members li {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 0.1rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 17rem; */
+    padding: 0.5rem 2vw 0.5rem 1vw;
+    min-width: -webkit-fill-available;
+    min-height: 64px;
+}
+
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 64px;
+    height: auto;
+    margin: 0 0.5rem 0 0;
+    filter: drop-shadow(0 0 8px #dbab10);
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #dbab10;
+    font-weight: 900;
+    text-shadow: 0 2px 12px #dbab1044;
+}
+
+.header-text .subtitle {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0.1rem;
+}
+
+.menu-bar {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #dbab10;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu-btn.active,
+.menu-btn:hover {
+    background: #dbab10;
+    color: #111112;
+}
+
+.campaign-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.planet-card {
+    background: #222;
+    border-radius: 10px;
+    border: 2px solid #dbab10;
+    box-shadow: 0 2px 12px #dbab1022;
+    padding: 1rem 1.2rem;
+    color: #fff;
+    font-size: 0.98rem;
+}
+
+.planet-card.automatons {
+    border-color: #fe6d72;
+}
+
+.planet-card.terminids {
+    border-color: #ffc100;
+}
+
+.planet-card.illuminates {
+    border-color: #6b3aba;
+}
+
+.planet-card .planet-header {
+    font-size: 1.08rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.planet-card.automatons .planet-header {
+    color: #fe6d72;
+}
+
+.planet-card.terminids .planet-header {
+    color: #ffc100;
+}
+
+.planet-card.illuminates .planet-header {
+    color: #6b3aba;
+}
+
+@media (max-width: 800px) {
+    main {
+        margin: 0;
+        padding: 0.5rem;
+    }
+
+    .roster {
+        min-width: -webkit-fill-available;
+        gap: 1.2rem;
+    }
+
+    .modal {
+        min-width: 90vw;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 900px) {
+    @media (max-width: 500px) {
+
+        body,
+        main,
+        .about-section,
+        .division-expander,
+        .modal,
+        .company-list,
+        .planet-card {
+            font-size: 0.98rem !important;
+        }
+
+        h1,
+        h2 {
+            font-size: 1.3rem !important;
+        }
+
+        .header-content {
+            flex-direction: column;
+            gap: 1.2rem;
+            padding: 0.5rem 2vw 0.5rem 1vw;
+        }
+
+        .brand-group {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 48px;
+        }
+
+        .menu-modal {
+            min-width: 90vw;
+            max-width: 98vw;
+            padding: 1rem 0.5rem 1rem 0.5rem;
+        }
+
+        .menu-modal-btn {
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    .roster {
+        grid-template-columns: 1fr;
+    }
+}
